@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IGNITE – Wissen entfachen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: linear-gradient(135deg, #1e1e2f, #2c2c44);
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      background: #ff6a00;
+      padding: 15px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+    }
+    .card {
+      background: #2e2e40;
+      margin: 10px auto;
+      padding: 15px;
+      border-radius: 12px;
+      max-width: 400px;
+    }
+    button {
+      background: #ff6a00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ff8533;
+    }
+  </style>
+</head>
+<body>
+  <header>IGNITE – Wissen entfachen</header>
+  <div class="container">
+    <div class="card">
+      <h2>Willkommen!</h2>
+      <p>Deine Lernplattform mit KI, Streak, Punkten und Decks.</p>
+    </div>
+    <div class="card">
+      <h3>Punkte: <span id="points">0</span></h3>
+      <h3>Level: <span id="level">Noob</span></h3>
+      <h3>🔥 Streak: <span id="streak">0</span> Tage</h3>
+      <button onclick="addPoint()">+ Punkte</button>
+      <button onclick="addStreak()">+ Streak</button>
+    </div>
+    <div class="card">
+      <h3>Deine Decks</h3>
+      <p>(Hier werden später deine Karteikarten-Decks angezeigt)</p>
+    </div>
+    <div class="card">
+      <h3>Kalender & Prüfungen</h3>
+      <p>(Hier wird dein Lernplan erscheinen)</p>
+    </div>
+    <div class="card">
+      <h3>Freunde & Multiplayer</h3>
+      <p>(Hier kannst du später Freunde einladen und chatten)</p>
+    </div>
+  </div>
+  <script>
+    let points = 0;
+    let streak = 0;
+
+    function addPoint() {
+      points += 10;
+      updateUI();
+    }
+    function addStreak() {
+      streak += 1;
+      updateUI();
+    }
+    function getLevel() {
+      if (points < 50) return "Noob";
+      if (points < 150) return "Anfänger";
+      if (points < 300) return "Pro";
+      return "Meister";
+    }
+    function updateUI() {
+      document.getElementById("points").innerText = points;
+      document.getElementById("streak").innerText = streak;
+      document.getElementById("level").innerText = getLevel();
+    }
+  </script>
+</body>
+</html>
